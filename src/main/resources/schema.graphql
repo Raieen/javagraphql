@@ -1,0 +1,36 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+# Query is basically, querying... searching for stuff
+type Query {
+    # Returns book given the id
+    bookById(id: ID): Book
+    # Returns a list of books with the given title
+    bookByTitle(title: String): [Book]
+    # Greets the given name in the format "Hello ${name}"
+    greet(name: String): String
+    # Returns all books in Mongo
+    books: [Book]
+}
+# Mutation... side effects and stuff. You are doing things.
+type Mutation {
+    # Creates book with the given title, page count and author.
+    createBook(title: String!, pageCount: Int!, author: String!): Book
+    # Updates book with the given title, page count and author
+    updateBook(id: ID!, title: String, pageCount: Int, author: String): Book
+    # This has been left as an exercise for the reader c:
+    deleteBook(id: ID!): String
+}
+
+# Type that describes the book
+type Book {
+    # Mongo Generated ID of book
+    id: ID
+    # Title of book
+    title: String
+    # Pages in book
+    pageCount: Int
+    # String name of book author(s) in csv
+    author: String
+}
