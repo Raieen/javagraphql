@@ -1,0 +1,10 @@
+bin/
+out/
+build/
+.gradle/
+target/
+
+# IntelliJ
+.idea
+*.iml
+vcs.xml
